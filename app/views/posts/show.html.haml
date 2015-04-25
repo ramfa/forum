@@ -1,7 +1,8 @@
 %h1= @post.title
-%p= @post.content
-%p= @post.topic_id
-
+%p= @post.content 
+%h3 Tema: 
+%p=@post.topic.title
+<br>
 = link_to "Edit", edit_post_path(@post)
 = link_to "Delete", post_path(@post), method: :delete, data:{ confirm: "Are u sure?"}
-= link_to "Home", root_path
+= link_to "Listado de Post", root_path

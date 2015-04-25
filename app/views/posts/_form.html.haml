@@ -1,5 +1,8 @@
 =simple_form_for @post do |f|
+ 
  = f.input :title
  = f.input :content
- = f.input :topic_id
+ = f.label :tema  
+ <br>
+ = f.select :topic_id, Topic.all.map { |t|[t.title,t.id]  },options ={:prompt => "Seleccione un Tema"}
  = f.submit
