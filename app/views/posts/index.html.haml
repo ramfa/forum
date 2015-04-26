@@ -6,5 +6,10 @@
 	= time_ago_in_words(post.created_at)
 	by
 	=post.user.email
-<br>
-=link_to "New Post", new_post_path
+	<br>
+- if user_signed_in?
+	= link_to "New Post", new_post_path
+- else
+	= link_to "Sign Up", new_user_registration_path
+	= link_to "Sign In", new_user_session_path
+= link_to "Listado de Topics", topics_path
