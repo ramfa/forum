@@ -1,7 +1,8 @@
 .comment
   %p= comment.text
-- if user_signed_in?
+  
+- if admin_signed_in?
   = link_to "Delete Reply", [comment.post, comment], method: :delete, data:{ confirm: "Are u sure?"}
   = link_to "Edit", edit_post_comment_path(comment.post, comment)
 - else 
-%h3 Para comentar debe estar registrado
+

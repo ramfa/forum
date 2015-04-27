@@ -11,7 +11,7 @@
    <p class="alert"><%= alert %></p>
    <%= yield %>
    <br>
-<% if admin_signed_in  %>
+<% if admin_signed_in?  %>
   REGISTRADO COMO ADMIN
    <%= link_to "Logout", destroy_admin_session_path, method: :delete, :class => 'navbar-link'  %>
   <% else %>
