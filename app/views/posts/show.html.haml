@@ -1,8 +1,19 @@
+#post_content
 %h1= @post.title
 %p= @post.content 
 %h3 Tema: 
 %p=@post.topic.title
-<br>
-= link_to "Edit", edit_post_path(@post)
-= link_to "Delete", post_path(@post), method: :delete, data:{ confirm: "Are u sure?"}
+
+#comments
+	%h2=@post.comments.count
+	= render @post.comments
+
+	%h3 Reply to thread
+	= render "comments/form"
+
+- if user_signed_in?
+	= link_to "Edit", edit_post_path(@post)
+	= link_to "Delete", post_path(@post), method: :delete, data:{ confirm: "Are u sure?"}
+- else
+
 = link_to "Listado de Post", root_path
